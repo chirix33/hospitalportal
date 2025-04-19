@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -18,7 +18,10 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: "Goudy Bookletter 1911", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
