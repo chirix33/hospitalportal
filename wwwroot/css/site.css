@@ -19,3 +19,25 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Moret Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Moret Regular'), url('../lib/fonts/Moret-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Moret Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Moret Book'), url('../lib/fonts/Moret-Book.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Moret Book Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Moret Book Oblique'), url('../lib/fonts/Moret-BookOblique.woff') format('woff');
+}
+    
