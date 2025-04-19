@@ -1,0 +1,5 @@
+﻿@import "tailwindcss";
+
+.bg-light-red {
+    background-color: #dc3545;
+}
