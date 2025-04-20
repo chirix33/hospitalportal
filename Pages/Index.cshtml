@@ -3,8 +3,32 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <h1 class="font-moret">Welcome to this web app</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<header>
+    <nav class="bg-accent-white flex items-center h-24">
+        <div class="container pl-8">
+            <a class="text-2xl font-bold" asp-area="" asp-page="/Index">Hospital Portal | Admin</a>
+        </div>
+    </nav>
+</header>
+<div class="flex flex-col w-full h-dvh items-center justify-center bg-gray-50">
+    <div class="bg-white p-8 w-lg rounded-lg">
+        <h1 class="text-2xl text-accent-blue mb-6 text-center">Login</h1>
+        <form action="" class="space-y-4">
+            <div>
+                <label for="hp_email" class="block text-sm font-medium text-accent-blue">Email</label>
+                <input type="email" name="hp_email" id="hp_email" placeholder="Enter your email"
+                       class="mt-1 block w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-accent-blue" autofocus="true" />
+            </div>
+            <div>
+                <label for="hp_password" class="block text-sm font-medium text-accent-blue">Password</label>
+                <input type="password" name="hp_password" id="hp_password" placeholder="Enter your password"
+                       class="mt-1 block w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-accent-blue" />
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-accent-blue text-accent-white p-2 rounded-md transition-opacity hover:opacity-90">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
 </div>

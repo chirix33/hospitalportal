@@ -14,23 +14,11 @@
     <link rel="stylesheet" href="~/HospitalPortal.styles.css" asp-append-version="true" />
 </head>
 <body class="text-accent-blue">
-    <header>
-        <nav class="bg-accent-white border-bottom box-shadow mb-3 flex items-center h-24">
-            <div class="container pl-8">
-                <a class="text-2xl" asp-area="" asp-page="/Index">Hospital Portal</a>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
+    <main role="main" class="flex flex-col min-h-screen mx-auto w-full">
+        @RenderBody()
+    </main>
     <footer class="border-top footer">
-        <div class="container">
-            &copy; 2025 - HospitalPortal
-        </div>
+        &copy; 2025 - HospitalPortal
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
