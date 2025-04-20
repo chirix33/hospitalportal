@@ -13,13 +13,6 @@ html {
   min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
-    font-family: "Goudy Bookletter 1911", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
 @font-face {
     font-family: 'Moret Regular';
     font-style: normal;
@@ -40,4 +33,10 @@ body {
     font-weight: normal;
     src: local('Moret Book Oblique'), url('../lib/fonts/Moret-BookOblique.woff') format('woff');
 }
-    
+
+body {
+    margin-bottom: 60px;
+    font-family: "Goudy Bookletter 1911", serif;
+    font-weight: 400;
+    font-style: normal;
+}
