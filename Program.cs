@@ -8,12 +8,21 @@ var samlSection = builder.Configuration.GetSection("Saml");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+    options.Secure = CookieSecurePolicy.Always;
+});
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = Saml2Defaults.Scheme;
 })
-.AddCookie()
+.AddCookie(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+})
 .AddSaml2(options =>
 {
     options.SPOptions.EntityId = new EntityId(samlSection["EntityId"]);
@@ -46,6 +55,7 @@ if (!app.Environment.IsDevelopment())
 
 app.Urls.Add(app.Environment.IsDevelopment() ? $"https://localhost:{port}" : $"http://*:{port}");
 app.UseRouting();
+app.UseCookiePolicy();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
