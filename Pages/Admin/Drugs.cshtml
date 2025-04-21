@@ -1,0 +1,36 @@
+﻿@page
+@model HospitalPortal.Pages.Admin.DrugsModel
+@{
+    ViewData["Title"] = "Drugs";
+}
+<nav class="bg-accent-blue flex items-center justify-between h-24 mb-8 text-accent-white px-8">
+    <ul class="admin-nav list-style-none flex space-x-4 items-center h-full ml-0 text-xl">
+        <li class=""><a href="/Admin/Patients">Patients</a></li>
+        <li class=""><a href="/Admin/Doctors">Doctors</a></li>
+        <li class="active"><a href="#" class="active">Drugs</a></li>
+    </ul>
+    <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+</nav>
+<div class="p-8">
+    <h1 class="text-2xl font-bold text-accent-blue mb-4">Drugs</h1>
+
+    <table class="table-auto w-full border-collapse border border-gray-300">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-4 py-2">ID</th>
+                <th class="border border-gray-300 px-4 py-2">Name</th>
+                <th class="border border-gray-300 px-4 py-2">Type</th>
+                <th class="border border-gray-300 px-4 py-2">Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border border-gray-300 px-4 py-2">1</td>
+                <td class="border border-gray-300 px-4 py-2">Aspirin</td>
+                <td class="border border-gray-300 px-4 py-2">Tablet</td>
+                <td class="border border-gray-300 px-4 py-2">100</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>

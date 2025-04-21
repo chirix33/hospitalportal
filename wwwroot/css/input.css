@@ -11,3 +11,14 @@
 .bg-light-red {
     background-color: #dc3545;
 }
+
+.admin-nav > li {
+    cursor: pointer;
+    padding-bottom: 1px;
+    border-bottom: 2px solid transparent;
+    transition: .1ms;
+}
+
+.admin-nav > li.active {
+    border-bottom-color: bisque;
+}
