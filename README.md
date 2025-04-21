@@ -1,13 +1,24 @@
-# Hospital Portal
+﻿# Hospital Portal
 
-Hospital Portal is a Razor Pages web application designed for administrative tasks. This project is built using .NET 9 and TailwindCSS for styling.
+A secure, simple, and production-ready **Hospital Management System (HMS)** built with **ASP.NET Core Razor Pages**, featuring:
 
+- 🔐 **SAML 2.0 Single Sign-On (SSO)** integration via **Okta**
+- 🐳 **Dockerized** deployment to **Render**
+- 🌐 Fully **HTTPS-compliant** with secure cookie handling
+- 📋 Admin interface for managing patients, doctors, and drug data
+- ⚙️ Extensible architecture with clean backend/frontend separation
+
+---
 ## Features
 
 - **Responsive Design**: Built with TailwindCSS for a modern and responsive UI.
-- **Custom Accent Colors**: Includes `accent-blue` and `accent-white` for branding.
 - **Login Page**: A clean and accessible login form.
-- **SVG Backgrounds**: Supports custom SVG backgrounds for enhanced visuals.
+- ✅ Secure SAML SSO login with Okta (SP-initiated & IdP-initiated)
+- ✅ Razor Pages UI with clean admin views
+- ✅ PostgreSQL integration (for admin, doctor, patient, drug data)
+- ✅ HTTPS support in local and production environments
+- ✅ Environment-based configuration (Dev vs Production)
+- ✅ Render-ready deployment (container-based)
 
 ## Project Structure
 
@@ -16,7 +27,6 @@ Hospital Portal is a Razor Pages web application designed for administrative tas
   - `Shared/_Layout.cshtml`: The shared layout for consistent UI.
 - **wwwroot**: Contains static files like CSS, JavaScript, and images.
   - `css/site.css`: Custom styles for the application.
-  - `lib/pictures/flower.svg`: Example SVG used as a background.
 
 ## Technologies Used
 
@@ -35,7 +45,7 @@ Hospital Portal is a Razor Pages web application designed for administrative tas
 3. Build and Run the project:
 	`dotnet run`
 
-4. Open your browser and navigate to `http://localhost:5000`.
+4. Open your browser and navigate to `https://localhost:5000`.
 
 ## Customization
 
