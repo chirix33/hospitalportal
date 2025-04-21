@@ -39,10 +39,10 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHttpsRedirection();
+    app.Urls.Add("https://localhost:5001");
 }
 
 app.Urls.Add(app.Environment.IsDevelopment() ? $"https://localhost:{port}" : $"http://*:{port}");
-app.Urls.Add("https://localhost:5001");
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
