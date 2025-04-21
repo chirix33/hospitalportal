@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Sustainsys.Saml2.AspNetCore2;
 
 namespace HospitalPortal.Pages
 {
@@ -16,5 +18,14 @@ namespace HospitalPortal.Pages
         {
 
         }
+
+        public IActionResult OnGetLogin()
+        {
+            return Challenge(new AuthenticationProperties
+            {
+                RedirectUri = "/Admin/Doctors" // or wherever you want to land after login
+            }, Saml2Defaults.Scheme);
+        }
+
     }
 }
