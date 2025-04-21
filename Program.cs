@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(options =>
 
     options.IdentityProviders.Add(
         new IdentityProvider(
-            new EntityId("http://www.okta.com/exkodeqq561QrJsD95d7"),
+            new EntityId(samlSection["IdpEntityId"]),
             options.SPOptions)
         {
             LoadMetadata = true,
