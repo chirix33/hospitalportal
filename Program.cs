@@ -37,7 +37,9 @@ var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
+    app.UseExceptionHandler("/Error"); 
+} else
+{
     app.UseHttpsRedirection();
     app.Urls.Add("https://localhost:5001");
 }
