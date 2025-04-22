@@ -28,9 +28,16 @@ namespace HospitalPortal.Pages.Admin
             _deployedUrl = configuration["DeployedUrl"]!;
         }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            if (!User.Identity?.IsAuthenticated ?? true)
+            {
+                return RedirectToPage("/Unauthorized");
+            }
+
             Doctors = await _httpClient.GetFromJsonAsync<List<Doctor>>($"{_apiSettings.BaseUrl}/doctors");
+
+            return Page();
         }
 
         public IActionResult OnPostLogout()

@@ -12,23 +12,10 @@
 </header>
 <div class="flex flex-col w-full h-dvh items-center justify-center bg-gray-50">
     <div class="bg-white p-8 w-lg rounded-lg">
-        <h1 class="text-2xl text-accent-blue mb-6 text-center">Login</h1>
+        <h1 class="text-2xl text-accent-blue mb-6 text-center">Admin Login</h1>
         <form action="" class="space-y-4">
-            <div>
-                <label for="hp_email" class="block text-sm font-medium text-accent-blue">Email</label>
-                <input type="email" name="hp_email" id="hp_email" placeholder="Enter your email"
-                       class="mt-1 block w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-accent-blue" autofocus="autofocus" />
-            </div>
-            <div>
-                <label for="hp_password" class="block text-sm font-medium text-accent-blue">Password</label>
-                <input type="password" name="hp_password" id="hp_password" placeholder="Enter your password"
-                       class="mt-1 block w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-accent-blue" />
-            </div>
             <div class="flex flex-col space-y-4">
-                <button type="submit" class="w-full bg-accent-blue text-accent-white p-2 rounded-md transition-opacity hover:opacity-90">
-                    Login
-                </button>
-                <a class="btn btn-primary" href="/?handler=Login">Login with Okta</a>
+                <a class="w-full bg-accent-blue text-accent-white px-2 py-2 flex items-center justify-center gap-4 rounded-md" href="/?handler=Login"><span class="text-lg font-bold">Login with</span> <img src="~/lib/pictures/okta.png" alt="Okta" class="object-cover" height="40" width="100" /></a>
             </div>
         </form>
     </div>
