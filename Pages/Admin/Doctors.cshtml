@@ -9,17 +9,12 @@
         <li class="active"><a href="#" class="active">Doctors</a></li>
         <li class=""><a href="/Admin/Drugs">Drugs</a></li>
     </ul>
-    <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+    <form method="post" asp-page-handler="Logout">
+        <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+    </form>
 </nav>
 <div class="p-8">
     <h1 class="text-2xl font-bold text-accent-blue mb-4">Doctors</h1>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <p>You are logged in!</p>
-    } else
-    {
-        <p>You are NOT logged in</p>
-    }
     <table class="table-auto w-full border-collapse border border-gray-300">
         <thead>
             <tr class="bg-gray-100">
@@ -30,13 +25,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="border border-gray-300 px-4 py-2">1</td>
-                <td class="border border-gray-300 px-4 py-2">Dr. Jane Smith</td>
-                <td class="border border-gray-300 px-4 py-2">Cardiology</td>
-                <td class="border border-gray-300 px-4 py-2">987-654-3210</td>
-            </tr>
-            <!-- Add more rows as needed -->
+            @foreach (var doctor in Model.Doctors)
+            {
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">@doctor.Id</td>
+                    <td class="border border-gray-300 px-4 py-2">@doctor.Name</td>
+                    <td class="border border-gray-300 px-4 py-2">@doctor.Specialization</td>
+                    <td class="border border-gray-300 px-4 py-2">@doctor.Phone</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

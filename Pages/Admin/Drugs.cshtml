@@ -9,7 +9,9 @@
         <li class=""><a href="/Admin/Doctors">Doctors</a></li>
         <li class="active"><a href="#" class="active">Drugs</a></li>
     </ul>
-    <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+    <form method="post" asp-page-handler="Logout">
+        <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+    </form>
 </nav>
 <div class="p-8">
     <h1 class="text-2xl font-bold text-accent-blue mb-4">Drugs</h1>

@@ -23,7 +23,7 @@ namespace HospitalPortal.Pages
         {
             return Challenge(new AuthenticationProperties
             {
-                RedirectUri = "/Admin/Doctors" // or wherever you want to land after login
+                RedirectUri = "/Admin/Patients" // Route to Patients after successful login
             }, Saml2Defaults.Scheme);
         }
 

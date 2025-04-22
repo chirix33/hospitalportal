@@ -2,12 +2,15 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Sustainsys.Saml2;
 using Sustainsys.Saml2.AspNetCore2;
 using Sustainsys.Saml2.Metadata;
+using HospitalPortal.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var samlSection = builder.Configuration.GetSection("Saml");
+var apiSettings = builder.Configuration.GetSection("ApiSettings");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<ApiSettings>(new ApiSettings { BaseUrl = apiSettings["BaseUrl"] ?? "NOT_SET" });
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.MinimumSameSitePolicy = SameSiteMode.None;
@@ -40,6 +43,8 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 

@@ -1,7 +1,7 @@
 ﻿@page
 @model HospitalPortal.Pages.Admin.PatientsModel
 @{
-	ViewData["Title"] = "Patients";
+    ViewData["Title"] = "Patients";
 }
 <nav class="bg-accent-blue flex items-center justify-between h-24 mb-8 text-accent-white px-8">
     <ul class="admin-nav list-style-none flex space-x-4 items-center h-full ml-0 text-xl">
@@ -9,27 +9,65 @@
         <li><a href="/Admin/Doctors">Doctors</a></li>
         <li><a href="/Admin/Drugs">Drugs</a></li>
     </ul>
-    <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+    <form method="post" asp-page-handler="Logout">
+        <button class="font-bold bg-amber-400 px-4 py-2 rounded-md text-accent-blue hover:cursor-pointer hover:opacity-75 transition">Sign Out</button>
+    </form>
 </nav>
 <div class="p-8">
     <h1 class="text-2xl font-bold text-accent-blue mb-4">Patients</h1>
-    <table class="table-auto w-full border-collapse border border-gray-300">
-        <thead>
-            <tr class="bg-gray-100">
-                <th class="border border-gray-300 px-4 py-2">ID</th>
-                <th class="border border-gray-300 px-4 py-2">Name</th>
-                <th class="border border-gray-300 px-4 py-2">Age</th>
-                <th class="border border-gray-300 px-4 py-2">Contact</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="border border-gray-300 px-4 py-2">1</td>
-                <td class="border border-gray-300 px-4 py-2">John Doe</td>
-                <td class="border border-gray-300 px-4 py-2">30</td>
-                <td class="border border-gray-300 px-4 py-2">123-456-7890</td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
+    <div class="flex flex-col mb-4 items-center space-y-2">
+        <button class="bg-gray-100 px-4 py-2 rounded-md border border-accent-blue opacity-50 hover:cursor-pointer">Add Patient +</button>
+        <p class="text-center text-lg text-amber-500 mb-4">You need to be a Doctor to add a patient</p>
+    </div>
+    @if (Model.isLoading)
+    {
+        <div class="animate-pulse space-y-4">
+            <!-- Skeleton Header -->
+            <div class="h-6 bg-gray-200 rounded w-1/4"></div>
+
+            <!-- Skeleton Table -->
+            <div class="space-y-2">
+                <!-- Table Header Skeleton -->
+                <div class="flex space-x-2">
+                    <div class="h-6 bg-gray-200 rounded w-1/12"></div>
+                    <div class="h-6 bg-gray-200 rounded w-1/4"></div>
+                    <div class="h-6 bg-gray-200 rounded w-1/12"></div>
+                    <div class="h-6 bg-gray-200 rounded w-1/4"></div>
+                </div>
+                <!-- Table Row Skeletons -->
+                @for (int i = 0; i < 5; i++)
+                {
+                    <div class="flex space-x-2">
+                        <div class="h-6 bg-gray-200 rounded w-1/12"></div>
+                        <div class="h-6 bg-gray-200 rounded w-1/4"></div>
+                        <div class="h-6 bg-gray-200 rounded w-1/12"></div>
+                        <div class="h-6 bg-gray-200 rounded w-1/4"></div>
+                    </div>
+                }
+            </div>
+        </div>
+    } else
+    {
+        <table class="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2">ID</th>
+                    <th class="border border-gray-300 px-4 py-2">Name</th>
+                    <th class="border border-gray-300 px-4 py-2">Age</th>
+                    <th class="border border-gray-300 px-4 py-2">Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var patient in Model.Patients)
+                {
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">@patient.Id</td>
+                        <td class="border border-gray-300 px-4 py-2">@patient.Name</td>
+                        <td class="border border-gray-300 px-4 py-2">@patient.Age</td>
+                        <td class="border border-gray-300 px-4 py-2">@patient.EmergencyPhone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>
